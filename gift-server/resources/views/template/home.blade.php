@@ -14,7 +14,7 @@
 	<link rel="stylesheet" href="{{ asset('css/flaticon.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <title>
-        {{ config('app.name') }}
+        {{ $config["web_name"] }} | {{ $config["page"] }}
     </title>
     @yield('css')
 </head>

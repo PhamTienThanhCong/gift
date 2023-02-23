@@ -12,69 +12,27 @@
 <section class="slider-hero js-fullheight">
     <div class="overlay"></div>
     <div class="featured-carousel owl-carousel">
-        <div class="item">
-            <div class="work">
-                <div class="img d-flex align-items-center js-fullheight"
-                    style="background-image: url(images/bg_1.jpg);">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-6 order-md-last">
-                                <div class="text mt-md-5">
-                                    <h2>Xây dựng profile cá nhân của bạn.</h2>
-                                    <p class="mb-5">A small river named Duden flows by their place and supplies it
-                                        with the necessary regelialia. It is a paradisematic country, in which
-                                        roasted parts of sentences fly into your mouth.</p>
-                                    <p><a href="#" class="btn btn-primary px-5 py-3">Bắt đầu ngay <span
-                                                class="ion ion-ios-arrow-round-forward"></span></a></p>
+        @for ($i = 0; $i < 3; $i++)
+            <div class="item">
+                <div class="work">
+                    <div class="img d-flex align-items-center js-fullheight"
+                        style="background-image: url(images/web/{{ $config['slide_images'][$i] }});">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6 order-md-last">
+                                    <div class="text mt-md-5">
+                                        <h2>{{ $config['slide_titles'][$i] }}</h2>
+                                        <p class="mb-5">{{ $config['slide_contents'][$i] }}</p>
+                                        <p><a href="#" class="btn btn-primary px-5 py-3">Bắt đầu ngay <span
+                                                    class="ion ion-ios-arrow-round-forward"></span></a></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="item">
-            <div class="work">
-                <div class="img d-flex align-items-center justify-content-center js-fullheight"
-                    style="background-image: url(images/bg_2.jpg);">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="text mt-md-5">
-                                    <h2>Tạo ra các lời chúc online</h2>
-                                    <p class="mb-5">Tạo ra các thiệp hoặc lời chúng online không cần phải code. 
-                                        Chúng tôi sẽ thiết kế cho bạn các mẫu có sẵn cho bạn sử dụng, việc của bạn chỉ cần gửi các mẫu đó cho người thân yêu của bạn
-                                    </p>
-                                    <p><a href="#" class="btn btn-primary px-5 py-3">Bắt đầu ngay <span
-                                                class="ion ion-ios-arrow-round-forward"></span></a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="work">
-                <div class="img d-flex align-items-center justify-content-center js-fullheight"
-                    style="background-image: url(images/bg_3.jpg);">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="text mt-md-5">
-                                    <h2>Ghi nhớ những ngày lễ trọng đại</h2>
-                                    <p class="mb-5">A small river named Duden flows by their place and supplies it
-                                        with the necessary regelialia. It is a paradisematic country, in which
-                                        roasted parts of sentences fly into your mouth.</p>
-                                    <p><a href="#" class="btn btn-primary px-5 py-3">Bắt đầu ngay <span
-                                                class="ion ion-ios-arrow-round-forward"></span></a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @endfor
     </div>
     <div class="my-5 text-center">
         <ol class="thumbnail">
@@ -88,20 +46,17 @@
     <div class="container-fluid px-0">
         <div class="d-md-flex full-wrap">
             <div class="half order-md-last d-flex align-items-stretch">
-                <div class="img w-100" style="background-image: url(images/about.jpg);"></div>
+                <div class="img w-100" style="background-image: url(images/web/{{ $config["about_image"] }});"></div>
             </div>
             <div class="half d-flex">
                 <div class="text-about pr-md-5">
                     <div class="col-md-6 d-flex">
                         <div class="heading-section">
-                            <span class="subheading">Welcome Pexman</span>
-                            <h2 class="mb-4">We Are Creative Agency That Create Beautiful Websites</h2>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and
-                                Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right
-                                at the coast of the Semantics, a large language ocean.</p>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and
-                                Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right
-                                at the coast of the Semantics, a large language ocean.</p>
+                            <span class="subheading">Chào mừng đã đến với {{ $config["web_name"] }}</span>
+                            <h2 class="mb-4">{{ $config["about_title"] }}</h2>
+                            <p>
+                                {!! nl2br(e($config["about_content"])) !!}
+                            </p>
                             <p class="mt-md-5"><a href="#" class="btn btn-primary px-5 py-3">Start A Project <span
                                         class="ion ion-ios-arrow-round-forward"></span></a></p>
                         </div>
@@ -119,10 +74,10 @@
                 <div class="block-18 mb-xl-0 mb-2">
                     <div class="text text-center w-100">
                         <p>
-                            <strong class="number" data-number="10">0</strong>
-                            <span>K+</span>
+                            <strong class="number" data-number="{{ $review["project_count"] }}">0</strong>
+                            <span>+</span>
                         </p>
-                        <span>Achievements</span>
+                        <span>Mẫu đã tạo</span>
                     </div>
                 </div>
             </div>
@@ -130,10 +85,9 @@
                 <div class="block-18 mb-xl-0 mb-2">
                     <div class="text text-center w-100">
                         <p>
-                            <strong class="number" data-number="21">0</strong>
-                            <span>K+</span>
+                            <strong class="number" data-number="{{ $review['year_count'] }}">0</strong>
                         </p>
-                        <span>Project Completed</span>
+                        <span>Số năm hoạt động</span>
                     </div>
                 </div>
             </div>
@@ -141,9 +95,10 @@
                 <div class="block-18 mb-xl-0 mb-2">
                     <div class="text text-center w-100">
                         <p>
-                            <strong class="number" data-number="27">0</strong>
+                            <strong class="number" data-number="{{ $review["client_count"] }}">0</strong>
+                            <span>+</span>
                         </p>
-                        <span>Years of Experienced</span>
+                        <span>Số người dùng</span>
                     </div>
                 </div>
             </div>
@@ -151,10 +106,10 @@
                 <div class="block-18 mb-xl-0 mb-2">
                     <div class="text text-center w-100">
                         <p>
-                            <strong class="number" data-number="30">0</strong>
-                            <span>K+</span>
+                            <strong class="number" data-number="{{ $review["blog_count"] }}">0</strong>
+                            <span>+</span>
                         </p>
-                        <span>Happy Customers</span>
+                        <span>Blog đã viết</span>
                     </div>
                 </div>
             </div>
@@ -171,8 +126,8 @@
                 <div class="text-about d-flex justify-content-end pl-md-5">
                     <div class="col-md-6 d-flex pl-md-5">
                         <div class="heading-section">
-                            <span class="subheading">What we offer</span>
-                            <h2 class="mb-4">What We Offer</h2>
+                            <span class="subheading">Chúng tôi có những gì ?</span>
+                            <h2 class="mb-4">Chúng tôi có những gì ?</h2>
                             <p>Far far away, behind the word mountains, far from the countries Vokalia and
                                 Consonantia, there live the blind texts.</p>
                             <div class="media block-6 services-2 w-100 d-flex align-items-center">
