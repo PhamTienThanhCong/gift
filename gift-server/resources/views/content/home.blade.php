@@ -5,7 +5,11 @@
 @endsection
 
 @section('js')
-    {{-- js here --}}
+    <script>
+        $(document).ready(function () {
+            $("div.mfp-container.mfp-s-ready.mfp-image-holder").css({height: "auto"})
+        });
+    </script>
 @endsection
 
 @section('content')
@@ -160,9 +164,8 @@
                     <div class="icon d-flex justify-content-center align-items-center"><span
                             class="flaticon-computer"></span></div>
                     <div class="media-body py-md-4">
-                        <h3>Web Design</h3>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary
-                            regelialia.</p>
+                        <h3>{{ $config["services"][0]->title }}</h3>
+                        <p>{{ $config["services"][0]->content }}</p>
                     </div>
                 </div>
             </div>
@@ -171,9 +174,8 @@
                     <div class="icon d-flex justify-content-center align-items-center"><span
                             class="flaticon-camera"></span></div>
                     <div class="media-body py-md-4">
-                        <h3>Photography</h3>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary
-                            regelialia.</p>
+                        <h3>{{ $config["services"][1]->title }}</h3>
+                        <p>{{ $config["services"][1]->content }}</p>
                     </div>
                 </div>
             </div>
@@ -182,9 +184,8 @@
                     <div class="icon d-flex justify-content-center align-items-center"><span
                             class="flaticon-bullhorn"></span></div>
                     <div class="media-body py-md-4">
-                        <h3>Marketing</h3>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary
-                            regelialia.</p>
+                        <h3>{{ $config["services"][3]->title }}</h3>
+                        <p>{{ $config["services"][3]->content }}</p>
                     </div>
                 </div>
             </div>
@@ -193,9 +194,8 @@
                     <div class="icon d-flex justify-content-center align-items-center"><span
                             class="flaticon-vector"></span></div>
                     <div class="media-body py-md-4">
-                        <h3>Graphic Design</h3>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary
-                            regelialia.</p>
+                        <h3>{{ $config["services"][2]->title }}</h3>
+                        <p>{{ $config["services"][2]->content }}</p>
                     </div>
                 </div>
             </div>
@@ -206,16 +206,16 @@
     <div class="container">
         <div class="row mb-5 justify-content-between">
             <div class="col-md-5 heading-section">
-                <span class="subheading">Our Portfolio</span>
-                <h2 class="mb-3">Our Stunning Works</h2>
+                <span class="subheading">Mẫu thiệp của chúng tôi</span>
+                <h2 class="mb-3">Mẫu thiệp online có sẵn của chúng tôi</h2>
             </div>
             <div class="col-md-6 d-flex align-items-end">
                 <ul class="work-category">
-                    <li class="active"><a href="#">All</a></li>
-                    <li><a href="#">Branding</a></li>
-                    <li><a href="#">Web Design</a></li>
-                    <li><a href="#">Illustration</a></li>
-                    <li><a href="#">Application</a></li>
+                    <li class="active"><a href="#">Tất cả</a></li>
+                    <li><a href="#">Sinh nhật</a></li>
+                    <li><a href="#">Giáng sinh</a></li>
+                    <li><a href="#">8 - 3</a></li>
+                    <li><a href="#">20 - 11</a></li>
                 </ul>
             </div>
         </div>
@@ -434,14 +434,14 @@
     <div class="container">
         <div class="row justify-content-center pb-5">
             <div class="col-md-7 text-center heading-section ftco-animate">
-                <span class="subheading">Read Latest News</span>
-                <h2 class="mb-4">Our Latest Blog</h2>
+                <span class="subheading">Bài blog phổ biến</span>
+                <h2 class="mb-4">Những blog mới nhất của chúng tôi</h2>
             </div>
         </div>
         <div class="row">
             <div class="col-md-6 col-lg-3 ftco-animate">
                 <div class="blog-entry">
-                    <a href="blog-single.html" class="block-20"
+                    <a href="#" class="block-20"
                         style="background-image: url('images/image_1.jpg');">
                     </a>
                     <div class="text d-block">
@@ -457,7 +457,7 @@
             </div>
             <div class="col-md-6 col-lg-3 ftco-animate">
                 <div class="blog-entry">
-                    <a href="blog-single.html" class="block-20"
+                    <a href="#" class="block-20"
                         style="background-image: url('images/image_2.jpg');">
                     </a>
                     <div class="text d-block">
@@ -473,7 +473,7 @@
             </div>
             <div class="col-md-6 col-lg-3 ftco-animate">
                 <div class="blog-entry">
-                    <a href="blog-single.html" class="block-20"
+                    <a href="#" class="block-20"
                         style="background-image: url('images/image_3.jpg');">
                     </a>
                     <div class="text d-block">
@@ -489,7 +489,7 @@
             </div>
             <div class="col-md-6 col-lg-3 ftco-animate">
                 <div class="blog-entry">
-                    <a href="blog-single.html" class="block-20"
+                    <a href="#" class="block-20"
                         style="background-image: url('images/image_4.jpg');">
                     </a>
                     <div class="text d-block">
