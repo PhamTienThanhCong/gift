@@ -120,7 +120,7 @@
     <div class="container-fluid px-0">
         <div class="d-md-flex full-wrap">
             <div class="half">
-                <div class="img" style="background-image: url(images/about-2.jpg);"></div>
+                <div class="img" style="background-image: url(images/web/{{ $config["about2_image"] }});"></div>
             </div>
             <div class="half d-flex">
                 <div class="text-about d-flex justify-content-end pl-md-5">
@@ -128,41 +128,22 @@
                         <div class="heading-section">
                             <span class="subheading">Chúng tôi có những gì ?</span>
                             <h2 class="mb-4">Chúng tôi có những gì ?</h2>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and
-                                Consonantia, there live the blind texts.</p>
-                            <div class="media block-6 services-2 w-100 d-flex align-items-center">
-                                <div class="icon d-flex justify-content-center align-items-center"><span>1</span>
+                            <p>
+                                {!! nl2br(e($config["about2_content"])) !!}
+                            </p>
+
+                            @foreach ($config["about2_steps"] as $index=>$item)
+                                <div class="media block-6 services-2 w-100 d-flex align-items-center">
+                                    <div class="icon d-flex justify-content-center align-items-center" style="background-color: rgb(248, 153, 169)"><span>{{ $index+1 }}</span>
+                                    </div>
+                                    <div class="text">
+                                        <h3>{{ $item->tittle }}</h3>
+                                        <p class="mb-0">{{ $item->content }}</p>
+                                    </div>
                                 </div>
-                                <div class="text">
-                                    <h3>Research</h3>
-                                    <p class="mb-0">A small river named Duden flows by their place.</p>
-                                </div>
-                            </div>
-                            <div class="media block-6 services-2 w-100 d-flex align-items-center">
-                                <div class="icon d-flex justify-content-center align-items-center"><span>2</span>
-                                </div>
-                                <div class="text">
-                                    <h3>Design</h3>
-                                    <p class="mb-0">A small river named Duden flows by their place.</p>
-                                </div>
-                            </div>
-                            <div class="media block-6 services-2 w-100 d-flex align-items-center">
-                                <div class="icon d-flex justify-content-center align-items-center"><span>3</span>
-                                </div>
-                                <div class="text">
-                                    <h3>Development</h3>
-                                    <p class="mb-0">A small river named Duden flows by their place.</p>
-                                </div>
-                            </div>
-                            <div class="media block-6 services-2 w-100 d-flex align-items-center">
-                                <div class="icon d-flex justify-content-center align-items-center"><span>4</span>
-                                </div>
-                                <div class="text">
-                                    <h3>Testing</h3>
-                                    <p class="mb-0">A small river named Duden flows by their place.</p>
-                                </div>
-                            </div>
-                            <p class="mt-md-5"><a href="#" class="btn btn-primary px-5 py-3">Start A Project <span
+                            @endforeach
+                        
+                            <p class="mt-md-5"><a href="#" class="btn btn-primary px-5 py-3">Bắt đầu ngay <span
                                         class="ion ion-ios-arrow-round-forward"></span></a></p>
                         </div>
                     </div>

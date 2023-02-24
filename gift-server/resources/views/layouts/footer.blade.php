@@ -3,26 +3,25 @@
         <div class="row mb-5 justify-content-between">
             <div class="col-sm-12 col-lg-4">
                 <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2 mb-4 logo"><a href="#">Pexman</a></h2>
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and
-                        Consonantia, there live the blind texts.</p>
-                    <h2 class="ftco-heading-2 mb-4">Connect with us</h2>
+                    <h2 class="ftco-heading-2 mb-4 logo"><a href="#">{{ $web_config->web_name }}</a></h2>
+                    <p class="mb-4">{{ $web_config->description_2 }}</p>
+                    <h2 class="ftco-heading-2 mb-4">Kết nối với chúng tôi</h2>
                     <ul class="ftco-footer-social list-unstyled mt-2">
-                        <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
-                        <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
-                        <li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
+                        <li class="ftco-animate"><a target="_blank" href="{{ $web_config->social->youtube }}"><span class="fa fa-youtube"></span></a></li>
+                        <li class="ftco-animate"><a target="_blank" href="{{ $web_config->social->facebook }}"><span class="fa fa-facebook"></span></a></li>
+                        <li class="ftco-animate"><a target="_blank" href="{{ $web_config->social->tiktok }}"><span class="fa-brands fa-tiktok"></span></a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-sm-12 col-lg-5">
-                <h2 class="ftco-heading-2 mb-4">Navigation</h2>
+                <h2 class="ftco-heading-2 mb-4">Đường dẫn</h2>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="ftco-footer-widget">
                             <ul class="list-unstyled">
-                                <li><a href="#">Home</a></li>
+                                <li><a href="#">Trang chủ</a></li>
                                 <li><a href="#">Services</a></li>
-                                <li><a href="#">Work</a></li>
+                                <li><a href="#">Mẫu thiệp</a></li>
                                 <li><a href="#">About</a></li>
                                 <li><a href="#">Blog</a></li>
                             </ul>
@@ -43,16 +42,12 @@
             </div>
             <div class="col-sm-12 col-lg-3">
                 <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2 mb-4">Have a Question?</h2>
+                    <h2 class="ftco-heading-2 mb-4">Địa chỉ liên hệ</h2>
                     <div class="block-23 mb-3">
                         <ul>
-                            <li><span class="icon fa fa-map marker"></span><span class="text">203 Fake St. Mountain
-                                    View, San Francisco, California, USA</span></li>
-                            <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+2 392 3929
-                                        210</span></a></li>
-                            <li><a href="#"><span class="icon fa fa-paper-plane pr-4"></span><span
-                                        class="text"><span class="__cf_email__"
-                                            data-cfemail="f69f989099b68f99838492999b979f98d895999b">[email&#160;protected]</span></span></a>
+                            <li><span class="icon fa fa-map marker"></span><span class="text">{{ $web_config->address }}</span></li>
+                            <li><span class="icon fa fa-phone"></span><span class="text">{{ $web_config->phone }}</span></li>
+                            <li><span class="icon fa fa-paper-plane pr-4"></span><span class="text"><span class="text">{{ $web_config->email }}</span></span>
                             </li>
                         </ul>
                     </div>
@@ -69,8 +64,8 @@
                         <script data-cfasync="false"
                             src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
                         <script>document.write(new Date().getFullYear());</script> All rights reserved | This
-                        template is made with <i class="fa fa-heart color-danger" aria-hidden="true"></i> by <a
-                            href="https://colorlib.com/" target="_blank" rel="nofollow noopener">Colorlib</a>
+                        template is made with <i class="fa fa-heart color-danger" aria-hidden="true"></i> by 
+                        <a href="{{ $web_config->social->facebook }}" target="_blank" rel="nofollow noopener">Han Pham</a>
                     </p>
                 </div>
             </div>

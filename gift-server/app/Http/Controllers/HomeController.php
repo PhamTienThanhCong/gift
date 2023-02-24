@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Option;
+use App\Models\web_config;
 
 class HomeController extends Controller
 {
@@ -26,14 +27,19 @@ class HomeController extends Controller
                 $config[$options[$i]->key] = $options[$i]->value;
             }
         }
-        $config["page"] = "home";
+        $web_config = web_config::get()->first();
+        $web_config->social = json_decode($web_config->social);
         $review = [
             "project_count" => "10",
             "client_count" => "20",
             "year_count" => "5",
             "blog_count" => "30"
         ];
+
+        $config["about2_steps"] = json_decode($config["about2_steps"]);
+
         return view("content/home", [
+            "web_config" => $web_config,
             "config" => $config,
             "review" => $review
         ]);

@@ -1,6 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="index.html">Pexman <span><small>Creative</small> Agency</span></a>
+        <a class="navbar-brand" href="/">{{ $web_config->web_name }} 
+            <span style="margin-top: 5px"><small>Thiết kế</small> và Chia sẻ</span>
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
             aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="fa fa-bars"></span> Menu
