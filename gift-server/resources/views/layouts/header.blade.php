@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="/">{{ $web_config->web_name }} 
+        <a class="navbar-brand" href="{{ route('home') }}">{{ $web_config->web_name }} 
             <span style="margin-top: 5px"><small>Thiết kế</small> và Chia sẻ</span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
@@ -9,12 +9,12 @@
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"><a href="index.html" class="nav-link">Trang chủ</a></li>
-                <li class="nav-item"><a href="about.html" class="nav-link">Về chúng tôi</a></li>
-                <li class="nav-item"><a href="work.html" class="nav-link">Mẫu thiệp</a></li>
-                <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-                <li class="nav-item"><a href="contact.html" class="nav-link">Liên hệ</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Đăng nhập</a></li>
+                <li class="nav-item{{ request()->is('/') ? ' active' : '' }}"><a href="{{ route('home') }}" class="nav-link">Trang chủ</a></li>
+                <li class="nav-item{{ request()->is('about') ? ' active' : '' }}"><a href="{{ route('about') }}" class="nav-link">Về chúng tôi</a></li>
+                <li class="nav-item{{ request()->is('template/*') ? ' active' : '' }}"><a href="{{ route('home') }}" class="nav-link">Mẫu thiệp</a></li>
+                <li class="nav-item{{ request()->is('blog/*') ? ' active' : '' }}"><a href="{{ route('home') }}" class="nav-link">Blog</a></li>
+                <li class="nav-item{{ request()->is('contact') ? ' active' : '' }}"><a href="{{ route('contact') }}" class="nav-link">Liên hệ</a></li>
+                <li class="nav-item{{ request()->is('login') ? ' active' : '' }}"><a href="{{ route('home') }}" class="nav-link">Đăng nhập</a></li>
             </ul>
         </div>
     </div>

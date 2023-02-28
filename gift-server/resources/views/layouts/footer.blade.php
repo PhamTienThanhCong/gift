@@ -3,7 +3,7 @@
         <div class="row mb-5 justify-content-between">
             <div class="col-sm-12 col-lg-4">
                 <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2 mb-4 logo"><a href="#">{{ $web_config->web_name }}</a></h2>
+                    <h2 class="ftco-heading-2 mb-4 logo"><a href="{{ route('home') }}">{{ $web_config->web_name }}</a></h2>
                     <p class="mb-4">{{ $web_config->description_2 }}</p>
                     <h2 class="ftco-heading-2 mb-4">Kết nối với chúng tôi</h2>
                     <ul class="ftco-footer-social list-unstyled mt-2">
@@ -19,11 +19,11 @@
                     <div class="col-md-6">
                         <div class="ftco-footer-widget">
                             <ul class="list-unstyled">
-                                <li><a href="#">Trang chủ</a></li>
-                                <li><a href="#">Services</a></li>
-                                <li><a href="#">Mẫu thiệp</a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Blog</a></li>
+                                <li><a href="{{ route('home') }}">Trang chủ</a></li>
+                                <li><a href="{{ route('home') }}">Services</a></li>
+                                <li><a href="{{ route('home') }}">Mẫu thiệp</a></li>
+                                <li><a href="{{ route('about') }}">About</a></li>
+                                <li><a href="{{ route('home') }}">Blog</a></li>
                             </ul>
                         </div>
                     </div>
