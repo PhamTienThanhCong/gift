@@ -16,7 +16,6 @@ class CreateLogSitesTable extends Migration
         Schema::create('log_sites', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('userId')->unsigned();
-            $table->text('description');
             $table->string('ip', 255);
             $table->string('note', 255);
             $table->foreign('userId')->references('id')->on('users');

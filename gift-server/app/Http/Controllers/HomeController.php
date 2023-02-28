@@ -35,8 +35,8 @@ class HomeController extends Controller
 
     public function about()
     {
-        $this->web_config->title = "About";
-        $this->config['image-first'] = $this->config['slide_images'][0];
+        $this->web_config->title = "Về chúng tôi";
+        $this->web_config->imagePreview = $this->config['slide_images'][0];
         $review = [
             "project_count" => "10",
             "client_count" => "20",
@@ -54,8 +54,8 @@ class HomeController extends Controller
 
     public function contact()
     {
-        $this->web_config->title = "Contact";
-        $this->config['image-first'] = $this->config['about_image'];
+        $this->web_config->title = "Liên hệ";
+        $this->web_config->imagePreview = $this->config['about_image'];
         return view("content/contact", [
             "web_config" => $this->web_config,
             "config" => $this->config

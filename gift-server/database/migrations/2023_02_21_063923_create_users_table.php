@@ -26,7 +26,6 @@ class CreateUsersTable extends Migration
             $table->integer('banned')->default(0);
             $table->integer('themeLanding')->default(0);
             $table->string('accessToken', 255)->unique();
-            $table->rememberToken();
             $table->timestamps();
         });
     }

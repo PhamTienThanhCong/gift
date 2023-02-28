@@ -11,10 +11,10 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item{{ request()->is('/') ? ' active' : '' }}"><a href="{{ route('home') }}" class="nav-link">Trang chủ</a></li>
                 <li class="nav-item{{ request()->is('about') ? ' active' : '' }}"><a href="{{ route('about') }}" class="nav-link">Về chúng tôi</a></li>
-                <li class="nav-item{{ request()->is('template/*') ? ' active' : '' }}"><a href="{{ route('home') }}" class="nav-link">Mẫu thiệp</a></li>
-                <li class="nav-item{{ request()->is('blog/*') ? ' active' : '' }}"><a href="{{ route('home') }}" class="nav-link">Blog</a></li>
+                <li class="nav-item{{ request()->is('template/*') ? ' active' : '' }}"><a href="#" class="nav-link">Mẫu thiệp</a></li>
+                <li class="nav-item{{ request()->is('blog/*') ? ' active' : '' }}"><a href="#" class="nav-link">Blog</a></li>
                 <li class="nav-item{{ request()->is('contact') ? ' active' : '' }}"><a href="{{ route('contact') }}" class="nav-link">Liên hệ</a></li>
-                <li class="nav-item{{ request()->is('login') ? ' active' : '' }}"><a href="{{ route('home') }}" class="nav-link">Đăng nhập</a></li>
+                <li class="nav-item{{ request()->is('login') ? ' active' : '' }}"><a href="{{ route('login') }}" class="nav-link">Đăng nhập</a></li>
             </ul>
         </div>
     </div>
