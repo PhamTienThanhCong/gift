@@ -8,6 +8,7 @@ use App\Http\Requests\auth\StoreRequest;
 use App\Models\User;
 use App\Models\web_config;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class userController extends Controller
@@ -56,6 +57,8 @@ class userController extends Controller
                 // get ip address of user
                 $this->logSite($user->id, $request->ip(), "Đăng nhập tài khoản");
                 
+                // save user to auth 
+                Auth::attempt(['email' => $request->email, 'password' => $request->password]);
                 
                 return redirect()->route('home');
             }
@@ -101,6 +104,14 @@ class userController extends Controller
     public function forgotPasswordProcess(Request $request)
     {
 
+    }
+
+    // logout function
+    public function logout()
+    {
+        // logout user
+        Auth::logout();
+        return redirect()->route('home');
     }
 
 }

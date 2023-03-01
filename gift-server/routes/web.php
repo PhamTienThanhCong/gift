@@ -21,11 +21,17 @@ Route::get("/about", [HomeController::class, "about"])->name("about");
 Route::get("/contact", [HomeController::class, "contact"])->name("contact");
 
 // route for auth
-Route::get("/login", [userController::class, "login"])->name("login");
-Route::get("/register", [userController::class, "register"])->name("register");
-Route::get("/forgot-password", [userController::class, "forgotPassword"])->name("forgot-password");
+// group and middleware authNotLogin
+Route::group(["middleware" => "authNotLogin"], function () {
+    Route::get("/login", [userController::class, "login"])->name("login");
+    Route::get("/register", [userController::class, "register"])->name("register");
+    Route::get("/forgot-password", [userController::class, "forgotPassword"])->name("forgot-password");
+}); 
 
 // route process for auth
 Route::post("/login", [userController::class, "loginProcess"])->name("login-process");
 Route::post("/register", [userController::class, "registerProcess"])->name("register-process");
 Route::post("/forgot-password", [userController::class, "forgotPasswordProcess"])->name("forgot-password-process");
+
+
+Route::get("/logout", [userController::class, "logout"])->name("logout");

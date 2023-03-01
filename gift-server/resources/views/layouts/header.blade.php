@@ -14,7 +14,17 @@
                 <li class="nav-item{{ request()->is('template/*') ? ' active' : '' }}"><a href="#" class="nav-link">Mẫu thiệp</a></li>
                 <li class="nav-item{{ request()->is('blog/*') ? ' active' : '' }}"><a href="#" class="nav-link">Blog</a></li>
                 <li class="nav-item{{ request()->is('contact') ? ' active' : '' }}"><a href="{{ route('contact') }}" class="nav-link">Liên hệ</a></li>
-                <li class="nav-item{{ request()->is('login') ? ' active' : '' }}"><a href="{{ route('login') }}" class="nav-link">Đăng nhập</a></li>
+                @if (Auth::check())
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->fullName }}</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown04">
+                            <a class="dropdown-item" href="{{ env('APP_FRONTEND_URL') }}" target="_blank">Trang chức năng</a>
+                            <a class="dropdown-item" href="{{ route('logout') }}">Đăng xuất</a>
+                        </div>
+                    </li>
+                @else
+                    <li class="nav-item{{ request()->is('login') ? ' active' : '' }}"><a href="{{ route('login') }}" class="nav-link">Đăng nhập</a></li>
+                @endif
             </ul>
         </div>
     </div>

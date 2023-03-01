@@ -13,7 +13,7 @@
                             <p>
                                 {!! nl2br(e($config["about_content"])) !!}
                             </p>
-                            <p class="mt-md-5"><a href="#" class="btn btn-primary px-5 py-3">Start A Project <span
+                            <p class="mt-md-5"><a href="{{ route('login') }}" class="btn btn-primary px-5 py-3">Tạo một dự án ngay<span
                                         class="ion ion-ios-arrow-round-forward"></span></a></p>
                         </div>
                     </div>

@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\developer;
-use Illuminate\Http\Request;
 use App\Models\Option;
 use App\Models\web_config;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {

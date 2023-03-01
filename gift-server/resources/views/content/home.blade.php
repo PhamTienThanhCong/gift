@@ -27,7 +27,7 @@
                                     <div class="text mt-md-5">
                                         <h2>{{ $config['slide_titles'][$i] }}</h2>
                                         <p class="mb-5">{{ $config['slide_contents'][$i] }}</p>
-                                        <p><a href="#" class="btn btn-primary px-5 py-3">Bắt đầu ngay <span
+                                        <p><a href="{{ route('login') }}" class="btn btn-primary px-5 py-3">Bắt đầu ngay <span
                                                     class="ion ion-ios-arrow-round-forward"></span></a></p>
                                     </div>
                                 </div>
@@ -77,7 +77,7 @@
                                 </div>
                             @endforeach
                         
-                            <p class="mt-md-5"><a href="#" class="btn btn-primary px-5 py-3">Bắt đầu ngay <span
+                            <p class="mt-md-5"><a href="{{ route('login') }}" class="btn btn-primary px-5 py-3">Bắt đầu ngay <span
                                         class="ion ion-ios-arrow-round-forward"></span></a></p>
                         </div>
                     </div>
