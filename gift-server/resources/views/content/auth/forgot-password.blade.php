@@ -28,8 +28,9 @@
                     <div class="row align-items-center justify-content-center">
                         <div class="col-md-7">
                             <h3 class="text-center">Lấy lại mật khẩu</h3>
-                            <p class="mb-4">
+                            <p class="mb-4 text-center">
                               Nhập đúng email đã đăng kí để nhận link đổi mật khẩu.
+                              <br><i style="font-size: 12px;">Tính năng chưa phát triển nếu bạn cần lấy lại mật khẩu hãy liên hệ quản trị viên</i>
                             </p>
                             {{-- response all erors --}}
                             @if ($errors->any())
@@ -42,31 +43,28 @@
                                 </div>
                             @endif
                             <form action="{{ route('register-process') }}" method="post" id="form-register">
-                                @csrf
+                                {{-- @csrf --}}
                                 <div class="form-group first">
                                     <label for="username">Email của bạn</label>
                                     <input type="text" class="form-control" name="email" value="{{ old('email') }}" placeholder="Nhập email" id="email" required>
                                 </div>
-                            
-                                <div class="d-flex mb-2 align-items-center">
-                                    <span><a href="{{ route('forgot-password') }}" class="forgot-pass">Quên mật khẩu</a></span>
-                                </div>
+                                {{-- <button class="btn btn-block btn-primary w-100 font-weight-bold">
+                                    Lấy lại mật khẩu
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button> --}}
+
+                                <button 
+                                    onclick="return confirm('Tính năng chưa phát triển nếu bạn cần lấy lại mật khẩu hãy liên hệ quản trị viên');"
+                                    class="btn btn-block btn-primary w-100 font-weight-bold">
+                                    Lấy lại mật khẩu
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+
                                 {{-- nếu bạn chưa có tài khoản? --}}
-                                <div class="d-flex align-items-center text-center">
-                                    <span>Bạn đã có tài khoản?<a href="{{ route('login') }}" class="forgot-pass"> Đăng nhập ngay</a></span>
+                                <div class="d-flex align-items-center text-center mt-2">
+                                    <span>Bạn nhớ tài khoản? <a href="{{ route('login') }}" class="forgot-pass">Đăng nhập ngay</a></span>
                                 </div>
-                                {{-- login width --}}
-                                <div class="d-flex mb-2 align-items-center">
-                                    <label class="control control--checkbox mb-0"><span class="caption">register with</span>
-                                        <div class="control__indicator"></div>
-                                    </label>
-                                    <span class="ml-auto">
-                                        <a style="font-size: 35px" href="#" class="forgot-pass">
-                                            <i class="fab fa-google-plus-square"></i>
-                                        </a>
-                                    </span>
-                                </div>
-                                <input type="submit" value="Đăng ký ngay" class="btn btn-block btn-primary">
+                                
                             </form>
                         </div>
                     </div>

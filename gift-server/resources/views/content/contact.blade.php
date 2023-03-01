@@ -68,7 +68,7 @@
                         <div class="row no-gutters">
                             <div class="col-lg-6 ftco-animate">
                                 <div class="contact-wrap w-100 p-md-5 p-4">
-                                    <h3>Contact us</h3>
+                                    <h3>Liên hệ với chúng tôi</h3>
                                     <p class="mb-4">Chúng tôi sẵn sàng cho bất kỳ đề xuất nào hoặc chỉ để trò chuyện</p>
                                     <div class="row mb-4">
                                         <div class="col-md-4">
