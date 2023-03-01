@@ -61,7 +61,7 @@
                                     <span>Bạn chưa có tài khoản?<a href="{{ route('register') }}" class="forgot-pass"> Đăng kí ngay</a></span>
                                 </div>
                                 {{-- login width --}}
-                                <div class="d-flex mb-2 align-items-center">
+                                {{-- <div class="d-flex mb-2 align-items-center">
                                     <label class="control control--checkbox mb-0"><span class="caption">Login with</span>
                                         <div class="control__indicator"></div>
                                     </label>
@@ -70,8 +70,8 @@
                                             <i class="fab fa-google-plus-square"></i>
                                         </a>
                                     </span>
-                                </div>
-                                <input type="submit" value="Đăng nhập" class="btn btn-block btn-primary">
+                                </div> --}}
+                                <input type="submit" value="Đăng nhập" class="btn btn-block btn-primary w-100" style="font-weight: 600">
                             </form>
                         </div>
                     </div>

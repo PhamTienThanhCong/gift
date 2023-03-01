@@ -5,7 +5,6 @@ namespace App\Http\Controllers\auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\auth\LoginRequest;
 use App\Http\Requests\auth\StoreRequest;
-use App\Models\log_site;
 use App\Models\User;
 use App\Models\web_config;
 use Illuminate\Http\Request;
@@ -19,15 +18,7 @@ class userController extends Controller
     {
         $this->web_config = web_config::setSettingWeb();
     }
-    // logsite function
-    public function logSite($userId, $ip, $note)
-    {
-        log_site::create([
-            'userId' => $userId,
-            'ip' => $ip,
-            'note' => $note,
-        ]);
-    }
+    
     // login function
     public function login()
     {
