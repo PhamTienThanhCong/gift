@@ -5,39 +5,104 @@
 @endsection
 
 @section('js')
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    {{-- <script src="{{ asset('js/admin/type_card.js') }}"></script> --}}
-    {{-- form submit form-submit --}}
+    {{-- csript --}}
     <script>
-        $(document).ready(function () {
-            $('#form-submit').submit(function (e) {
-                e.preventDefault();
-                
-            });
+
+        let check_submit = false;
+
+        // on keyup event name-url
+        $('#name-url').focusout(function() {
+            check_submit = false;
+            $('#name-url').parent().find('.control-label').text('Tên trên đường dẫn url');
+            var name = $(this).val();
+            // check name is english and no space can be used - or _
+            var regex = /^[a-zA-Z0-9-_]+$/;
+            if (regex.test(name)) {
+                // check name is not empty
+                if (name != '') {
+                    // check name is not exist
+                    $.ajax({
+                        url: "{{ route('admin.type-card.check-url') }}",
+                        type: "GET",
+                        data: {
+                            url: name,
+                        },
+                        success: function(data) {
+                            if (data.status == false) {
+                                $('#name-url').parent().addClass('has-error');
+                                $('#name-url').parent().removeClass('has-warning');
+                                $('#name-url').parent().find('.help-block').text('Tên đã tồn tại');
+                            } else {
+                                check_submit = true;
+                                $('#name-url').parent().find('.control-label').text(`Tên trên đường dẫn url`);
+                                $('#name-url').parent().removeClass('has-error');
+                                $('#name-url').parent().removeClass('has-warning');
+                                $('#name-url').parent().addClass('has-success');
+                                $('#name-url').parent().find('.help-block').text('Tên có thể sử dụng');
+                            }
+                        }
+                    });
+                } else {
+                    $('#name-url').parent().removeClass('has-error');
+                    $('#name-url').parent().removeClass('has-warning');
+                    $('#name-url').parent().find('.help-block').text('Nhập tên url có các kí tự từ A - Z, a - z, 0 - 9, dấu gạch ngang (-) và dấu gạch dưới (_)');
+                }
+            } else {
+                $('#name-url').parent().addClass('has-error');
+                $('#name-url').parent().removeClass('has-warning');
+                $('#name-url').parent().find('.help-block').text('Nhập tên url có các kí tự từ A - Z, a - z, 0 - 9, dấu gạch ngang (-) và dấu gạch dưới (_)');
+            }
+            
         });
+
+        // onsubmit form form-submit
+        $('#form-submit').submit(function(e) {
+            if (check_submit == false) {
+                e.preventDefault();
+                swal("Lỗi", "Vui lòng kiểm tra lại các trường dữ liệu", "error");
+            }
+        });
+
+        $(document).ready(function () {
+            // check session error and show message
+            @if (session('error'))
+                swal("Lỗi", "{{ session('error') }}", "error");
+            @endif
+            // check session success and show message
+            @if (session('success'))
+                swal("Thành công", "{{ session('success') }}", "success");
+            @endif
+        });
+
+    </script>
 @endsection
 
 @section('content')
     <div class="box box-default">
         <div class="box-header with-border">
             <h3 class="box-title">Tạo ra các thể loại thẻ cho người dùng</h3>
+            
         </div>
 
         <div class="box-body">
-            <form class="row" id="form-submit" method="post" action="{{ route('admin.type-card.store') }}" enctype="multipart/form-data">
+            <form class="row" id="form-submit" method="post" action="{{ route('admin.type-card.store') }}"
+                enctype="multipart/form-data">
+                @csrf
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="name-type">Tên thể loại</label>
-                        <input type="text" name="name" class="form-control" id="name-type" placeholder="Nhập tên" required>
+                        <input type="text" name="name" class="form-control" id="name-type" placeholder="Nhập tên"
+                            required>
                     </div>
-                    <div class="form-group">
-                        <label for="name-url">Tên url</label>
-                        <div class="input-group">
-                            <input type="text" name="url" id="name-url" class="form-control" placeholder="Nhập tên trên đường dẫn url" required>
-                            <span class="input-group-btn">
-                                <button type="button" class="btn btn-info btn-flat">kiểm tra url!</button>
-                            </span>
-                        </div>
+                    
+                    <div class="form-group has-warning">
+                        <label class="control-label" for="inputWarning">
+                            Tên trên đường dẫn url
+                        </label>
+                        <input type="text" name="url" id="name-url" class="form-control"
+                        placeholder="Nhập tên trên đường dẫn url" required>
+                        <span class="help-block">Nhập tên url có các kí tự từ A - Z, a - z, 0 - 9, dấu gạch ngang (-) và dấu gạch dưới (_)
+                        </span>
                     </div>
                 </div>
                 <div class="col-md-6">

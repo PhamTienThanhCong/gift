@@ -70,12 +70,15 @@
     <script src="{{ asset('admin/dist/js/adminlte.min.js') }}"></script>
 
     <script src="{{ asset('admin/dist/js/demo.js') }}"></script>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <script>
         $(document).ready(function() {
             $('.sidebar-menu').tree()
         })
     </script>
-    @yield('script')
+    @yield('js')
 </body>
 
 <!-- Mirrored from adminlte.io/themes/AdminLTE/pages/examples/blank.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 02 Mar 2023 16:29:28 GMT -->

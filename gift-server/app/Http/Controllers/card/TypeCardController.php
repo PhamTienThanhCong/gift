@@ -32,7 +32,37 @@ class TypeCardController extends Controller
 
     public function store(Request $request)
     {
-        //
+        // get data from form by method POST get name, url, description and 
+        $name = $request->get('name');
+        $url = $request->get('url');
+        $description = $request->get('description');
+
+        // check isset name, url, description
+        if(!$name || !$url || !$description) {
+            return redirect()->back()->with('error', 'Vui lòng nhập đầy đủ thông tin');
+        }
+
+        if($request->hasFile('img')) {
+            $image = $request->file('img');
+            $image_name = $image->getClientOriginalName();
+            $image_name = time().'_'.$image_name;
+            $image->move('images/card_type', $image_name);
+        }else{
+            $image_name = 'default.png';
+        }
+
+        // insert data to table card_types
+        $card_type = new card_type();
+        $card_type->name = $name;
+        $card_type->url = $url;
+        $card_type->description = $description;
+        $card_type->img = $image_name;
+        $card_type->save();
+
+        $this->logSite(auth()->user()->id, $request->ip(), 'Thêm loại thẻ '.$name);
+
+        return redirect()->back()->with('success', 'Thêm loại thẻ thành công');
+        
     }
 
     public function edit()
@@ -56,8 +86,12 @@ class TypeCardController extends Controller
             ]);
     }
     // check isset url
-    public function checkUrl($url)
-    {   
+    public function checkUrl(Request $request)
+    {
+        
+        // get url by Method GET
+        $url = $request->get('url');
+
         // tìm kiếm trong bảng card_types có giá trị trùng với url
         $card_type = card_type::where('url', $url)->first();
         // nếu có trả về false dạng json

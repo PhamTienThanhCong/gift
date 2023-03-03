@@ -51,7 +51,7 @@ Route::group(["middleware" => 'authAdminLogined', "prefix" => "myadmin"], functi
         Route::post("/store", [TypeCardController::class, "store"])->name("admin.type-card.store");
         Route::post("/update/{id}", [TypeCardController::class, "update"])->name("admin.type-card.update");
         // check url
-        Route::get("/check-url/{url}", [TypeCardController::class, "checkUrl"])->name("admin.type-card.check-url");
+        Route::get("/check-url", [TypeCardController::class, "checkUrl"])->name("admin.type-card.check-url");
     });
 
 });
@@ -59,3 +59,9 @@ Route::group(["middleware" => 'authAdminLogined', "prefix" => "myadmin"], functi
 // Route::group(["middleware" => 'authUserLogined', "prefix" => "user"], function() {
 //     Route::get("/", [dashboardController::class, "index"])->name("user.dashboard");
 // });
+
+
+// url send
+Route::get("/send/{url}", function($url){
+    return "demo" + $url;
+})->name("card-send");

@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class card_type extends Model
 {
     use HasFactory;
+    protected $table = 'card_types';
+    protected $fillable = [
+        'name',
+        'url',
+        'description',
+        'img',
+    ];
 }
