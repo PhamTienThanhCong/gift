@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\auth\userController;
+use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,5 +34,15 @@ Route::post("/login", [userController::class, "loginProcess"])->name("login-proc
 Route::post("/register", [userController::class, "registerProcess"])->name("register-process");
 Route::post("/forgot-password", [userController::class, "forgotPasswordProcess"])->name("forgot-password-process");
 
+Route::group(["middleware" => 'authLogined'], function() {
+    Route::get("/logout", [userController::class, "logout"])->name("logout");
+});
 
-Route::get("/logout", [userController::class, "logout"])->name("logout");
+// route for dashboard admin flex /admin
+Route::group(["middleware" => 'authAdminLogined', "prefix" => "myadmin"], function() {
+    Route::get("/", [dashboardController::class, "index"])->name("admin.dashboard");
+});
+
+// Route::group(["middleware" => 'authUserLogined', "prefix" => "user"], function() {
+//     Route::get("/", [dashboardController::class, "index"])->name("user.dashboard");
+// });
