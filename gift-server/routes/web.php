@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\auth\userController;
+use App\Http\Controllers\Card\TypeCardController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -41,6 +42,18 @@ Route::group(["middleware" => 'authLogined'], function() {
 // route for dashboard admin flex /admin
 Route::group(["middleware" => 'authAdminLogined', "prefix" => "myadmin"], function() {
     Route::get("/", [dashboardController::class, "index"])->name("admin.dashboard");
+    // route for card
+    Route::group(["prefix" => "type-card"], function() {
+        Route::get("/list", [TypeCardController::class, "index"])->name("admin.type-card");
+        Route::get("/create", [TypeCardController::class, "create"])->name("admin.type-card.create");
+        Route::get("/edit/{id}", [TypeCardController::class, "edit"])->name("admin.type-card.edit");
+        Route::get("/view/{id}", [TypeCardController::class, "view"])->name("admin.type-card.view");
+        Route::post("/store", [TypeCardController::class, "store"])->name("admin.type-card.store");
+        Route::post("/update/{id}", [TypeCardController::class, "update"])->name("admin.type-card.update");
+        // check url
+        Route::get("/check-url/{url}", [TypeCardController::class, "checkUrl"])->name("admin.type-card.check-url");
+    });
+
 });
 
 // Route::group(["middleware" => 'authUserLogined', "prefix" => "user"], function() {

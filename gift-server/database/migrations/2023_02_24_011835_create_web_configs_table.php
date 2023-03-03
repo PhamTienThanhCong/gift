@@ -24,7 +24,7 @@ class CreateWebConfigsTable extends Migration
             $table->string("phone", 12)->nullable();
             $table->string("email", 100)->nullable();
             $table->json("social")->nullable();
-            
+            $table->integer('maintenance')->default(0);
             $table->timestamps();
         });
     }

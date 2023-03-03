@@ -16,19 +16,19 @@
 
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">CHỨC NĂNG CHÍNH</li>
-            <li class="{{ request()->is('template/*') ? ' active' : '' }}">
-                <a href="#">
+            <li class="{{ request()->is('myadmin') ? ' active' : '' }}">
+                <a href="{{ route('admin.dashboard') }}">
                     <i class="fa fa-th"></i> <span>Tổng quan</span>
                 </a>
             </li>
-            <li class="treeview">
+            <li class="treeview{{ request()->is('myadmin/type-card/*') ? ' active' : '' }}">
               <a href="#">
                   <i class="fa fa-fw fa-files-o"></i>
                   <span>Quản lý loại thiệp</span>
               </a>
               <ul class="treeview-menu">
-                  <li><a href="#"><i class="fa fa-circle-o"></i>Danh sách các thể loại</a></li>
-                  <li><a href="#"><i class="fa fa-circle-o"></i>Thêm thể loại mới</a></li>
+                  <li class="{{ request()->is('myadmin/type-card/list') ? 'active' : '' }}"><a href="{{ route('admin.type-card') }}"><i class="fa fa-circle-o"></i>Danh sách các thể loại</a></li>
+                  <li class="{{ request()->is('myadmin/type-card/create') ? 'active' : '' }}"><a href="{{ route('admin.type-card.create') }}"><i class="fa fa-circle-o"></i>Thêm thể loại mới</a></li>
               </ul>
             </li>
             <li class="treeview">
