@@ -17,8 +17,11 @@ class TypeCardController extends Controller
     public function index()
     {
         $this->web_config->title = 'Danh sách loại thẻ';
+        // get data from table card_types
+        $card_types = card_type::all();
         return view('content.admin.card.type_card',[
                 'web_config' => $this->web_config,
+                'card_types' => $card_types,
             ]);
     }
 
@@ -65,17 +68,53 @@ class TypeCardController extends Controller
         
     }
 
-    public function edit()
+    public function edit($id)
     {
-        $this->web_config->title = 'Sửa loại thẻ';
+        $card_type = card_type::find($id);
+        $this->web_config->title = "Sửa thẻ: $card_type->name";
         return view('content.admin.card.type_card_edit',[
                 'web_config' => $this->web_config,
+                'data' => $card_type,
             ]);
     }
 
     public function update(Request $request, $id)
     {
-        //
+        // get data from form by method POST get name, url, description and 
+        $name = $request->get('name');
+        $url = $request->get('url');
+        $description = $request->get('description');
+        
+        // check isset name, url, description
+        if(!$name || !$url || !$description) {
+            return redirect()->back()->with('error', 'Vui lòng nhập đầy đủ thông tin');
+        }
+
+        // insert data to table card_types
+        $card_type = card_type::find($id);
+
+        if($request->hasFile('img')) {
+            $image = $request->file('img');
+            $image_name = $image->getClientOriginalName();
+            $image_name = time().'_'.$image_name;
+            $image->move('images/card_type', $image_name);
+            // remove old image
+            if($card_type->img != 'default.png') {
+                unlink('images/card_type/'.$card_type->img);
+            }
+        }else{
+            $image_name = $card_type->img;
+        }
+
+        $card_type->name = $name;
+        $card_type->url = $url;
+        $card_type->description = $description;
+        $card_type->img = $image_name;
+        $card_type->save();
+
+        $this->logSite(auth()->user()->id, $request->ip(), 'Sửa loại thẻ '.$name);
+
+        return redirect()->back()->with('success', 'Sửa loại thẻ thành công');
     }
     // view
     public function view()

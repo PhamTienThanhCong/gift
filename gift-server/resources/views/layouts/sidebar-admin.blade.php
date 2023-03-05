@@ -31,7 +31,7 @@
                   <li class="{{ request()->is('myadmin/type-card/create') ? 'active' : '' }}"><a href="{{ route('admin.type-card.create') }}"><i class="fa fa-circle-o"></i>Thêm thể loại mới</a></li>
               </ul>
             </li>
-            <li class="treeview">
+            <li class="treeview{{ request()->is('myadmin/card/*') ? ' active' : '' }}">
                 <a href="#">
                     <i class="fa fa-fw fa-file-picture-o"></i>
                     <span>Quản lý mẫu thiệp</span>
@@ -40,8 +40,8 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                  <li><a href="#"><i class="fa fa-circle-o"></i> Tạo mẫu thiệp</a></li>
-                  <li><a href="#"><i class="fa fa-circle-o"></i>Danh sách mẫu thiệp</a></li>
+                  <li class="{{ request()->is('myadmin/type-card/create') ? 'active' : '' }}"><a href="{{ route('admin.card.create') }}"><i class="fa fa-circle-o"></i> Tạo mẫu thiệp</a></li>
+                  <li class="{{ request()->is('myadmin/type-card/list') ? 'active' : '' }}"><a href="{{ route('admin.card') }}"><i class="fa fa-circle-o"></i>Danh sách mẫu thiệp</a></li>
                   <li><a href="#"><i class="fa fa-circle-o"></i>Mẫu thiệp đang sử dụng</a></li>
                 </ul>
             </li>

@@ -27,7 +27,7 @@
                                 <th>Mô tả</th>
                                 <th>Thao tác</th>
                             </tr>
-                            @foreach ($card_types as $item)
+                            @foreach ($data as $item)
                                 <tr>
                                     <td>{{ $item->id }}</td>
                                     <td><img src="{{ asset("/images/card_type/$item->img") }}" alt="" height="100px"></td>

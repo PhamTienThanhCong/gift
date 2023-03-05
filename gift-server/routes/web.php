@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\auth\userController;
+use App\Http\Controllers\Card\CardController;
 use App\Http\Controllers\Card\TypeCardController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\HomeController;
@@ -54,6 +55,18 @@ Route::group(["middleware" => 'authAdminLogined', "prefix" => "myadmin"], functi
         Route::get("/check-url", [TypeCardController::class, "checkUrl"])->name("admin.type-card.check-url");
     });
 
+    // route for card
+    Route::group(["prefix" => "card"], function() {
+        Route::get("/list", [CardController::class, "index"])->name("admin.card");
+        Route::get("/create", [CardController::class, "create"])->name("admin.card.create");
+        Route::get("/edit/{id}", [CardController::class, "edit"])->name("admin.card.edit");
+        Route::get("/view/{id}", [CardController::class, "view"])->name("admin.card.view");
+        Route::post("/store", [CardController::class, "store"])->name("admin.card.store");
+        Route::post("/update/{id}", [CardController::class, "update"])->name("admin.card.update");
+        // check url
+        Route::get("/check-url", [CardController::class, "checkUrl"])->name("admin.card.check-url");
+    });
+
 });
 
 // Route::group(["middleware" => 'authUserLogined', "prefix" => "user"], function() {
@@ -65,3 +78,6 @@ Route::group(["middleware" => 'authAdminLogined', "prefix" => "myadmin"], functi
 Route::get("/send/{url}", function($url){
     return "demo" + $url;
 })->name("card-send");
+
+// route demo
+Route::get("/demo-card/{url}", [CardController::class, "demo"])->name("card.demo");

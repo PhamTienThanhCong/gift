@@ -19,11 +19,9 @@ class CreateCardConfigsTable extends Migration
             $table->string('name', 255);
             $table->string('url', 50)->unique();
             $table->string('img', 255);
-            $table->string('html_file', 50);
-            $table->string('css_file', 50);
-            $table->string('js_file', 50);
+            $table->string('template', 100);
             $table->text('description');
-            $table->json('config');
+            $table->text('config');
             $table->foreign('cardId')->references('id')->on('card_types');
             $table->timestamps();
         });
