@@ -18,8 +18,12 @@ class CardController extends Controller
     public function index()
     {
         $this->web_config->title = 'Danh sách thẻ';
-        // get data
-        $data = card_config::all();
+        // lấy tất cả dữ liệu trong bảng card_configs sau đó left join với bảng card_infos để đếm số lượng xuất hiện của id trong bảng card_configs
+        $data = card_config::selectRaw('card_configs.*, COUNT(card_infos.id) as quantity')
+            ->leftJoin('card_infos', 'card_configs.id', '=', 'card_infos.themeLanding')
+            ->groupBy('card_configs.id')
+            ->get();
+
         return view('content.admin.card.card',[
                 'web_config' => $this->web_config,
                 'data' => $data,
@@ -37,11 +41,17 @@ class CardController extends Controller
             ]);
     }
 
-    public function edit()
+    public function edit($id)
     {
         $this->web_config->title = 'Sửa thẻ';
+        // get data card config by id 
+        $data = card_config::find($id);
+        // get all card type
+        $card_type = card_type::all();
         return view('content.admin.card.card_edit',[
                 'web_config' => $this->web_config,
+                'data' => $data,
+                'card_types' => $card_type,
             ]);
     }
 
@@ -92,9 +102,42 @@ class CardController extends Controller
         return redirect()->route('admin.card.create')->with('success', 'Thêm thẻ thành công');
     }
 
-    public function update()
+    public function update($id, Request $request)
     {
-        return redirect()->route('admin.card');
+        // get data: name,url,cardId,config,template,source,description from form by method POST 
+        $name = $request->get('name');
+        $url = $request->get('url');
+        $cardId = $request->get('cardId');
+        $config = $request->get('config');
+        $template = $request->get('template');
+        $source = $request->get('source');
+        $description = $request->get('description');
+        $card_config = card_config::find($id);
+        // check has file name img and get file 
+        if($request->hasFile('img')) {
+            $image = $request->file('img');
+            $image_name = $image->getClientOriginalName();
+            $image_name = time().'_'.$image_name;
+            $image->move('images/cards', $image_name);
+
+        }else{
+            $image_name = $card_config->img;
+        }
+
+        // update data to table card_config
+        
+        $card_config->name = $name;
+        $card_config->url = $url;
+        $card_config->cardId = $cardId;
+        $card_config->config = $config;
+        $card_config->template = $template;
+        $card_config->source = $source;
+        $card_config->description = $description;
+        $card_config->img = $image_name;
+        $card_config->save();
+
+        // return success.
+        return redirect()->route('admin.card.edit', $id)->with('success', 'Sửa thẻ thành công');
     }
 
     public function checkUrl(Request $request)
@@ -125,17 +168,17 @@ class CardController extends Controller
     public function demo($url){
         $card = card_config::where('url', $url)->first();
         // remove /r and /n in card->config after save to $card 
-        $card = str_replace(array("\r",  "\n", "  "), '', $card->config);
-        $card = str_replace(array(" :",  ": "), ':', $card);
+        $card_config = str_replace(array("\r",  "\n", "  "), '', $card->config);
+        $card_config = str_replace(array(" :",  ": "), ':', $card_config);
         // convert string to array
 
-        $card = json_decode($card);
+        $card_config = json_decode($card_config);
 
-        for ($i=0; $i < count($card); $i++) { 
-            $card[$i]->value = $card[$i]->demo;
+        for ($i=0; $i < count($card_config); $i++) { 
+            $card_config[$i]->value = $card_config[$i]->demo;
         }
-        return view('template-gift.template1.index',[
-            'data' => $card,
+        return view("template-gift.$card->template",[
+            'data' => $card_config,
         ]);
     }
 }

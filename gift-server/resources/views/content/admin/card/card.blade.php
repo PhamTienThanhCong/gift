@@ -23,21 +23,21 @@
                                 <th style="width: 10px">#</th>
                                 <th>Ảnh</th>
                                 <th>Tên</th>
-                                <th>Đường dẫn</th>
                                 <th>Mô tả</th>
+                                <th>Số lượng sử dụng</th>
                                 <th>Thao tác</th>
                             </tr>
                             @foreach ($data as $item)
                                 <tr>
                                     <td>{{ $item->id }}</td>
-                                    <td><img src="{{ asset("/images/card_type/$item->img") }}" alt="" height="100px"></td>
+                                    <td><img src="{{ asset("/images/cards/$item->img") }}" alt="" height="100px"></td>
                                     <td>{{ $item->name }}</td>
-                                    <td>{{ $item->url }}</td>
                                     <td>{{ $item->description }}</td>
+                                    <td>{{ $item->quantity }}</td>
                                     <td>
-                                        <a href="{{ route('admin.type-card.edit', ['id' => $item->id]) }}"
+                                        <a href="{{ route('admin.card.edit', ['id' => $item->id]) }}"
                                             class="btn btn-primary">Sửa</a>
-                                        <a href="#"
+                                        <a href="{{ route('card.demo', ['url' => $item->url]) }}"
                                             class="btn btn-danger">Xem</a>
                                     </td>
                                 </tr>
