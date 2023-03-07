@@ -19,4 +19,11 @@ class dashboardController extends Controller
                 'web_config' => $this->web_config,
             ]);
     }
+    public function index2()
+    {
+        $this->web_config->title = 'Dashboard';
+        return view('content.admin.dashboard',[
+                'web_config' => $this->web_config,
+            ]);
+    }
 }

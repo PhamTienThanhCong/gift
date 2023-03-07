@@ -18,7 +18,11 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->fullName }}</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown04">
-                            <a class="dropdown-item" href="{{ route('admin.dashboard') }}" target="_blank">Trang chức năng</a>
+                            @if (Auth::user()->isAdmin == 1)
+                                <a class="dropdown-item" href="{{ route('admin.dashboard') }}" target="_blank">Trang chức năng</a>
+                            @else
+                                <a class="dropdown-item" href="{{ route('user.dashboard') }}" target="_blank">Trang chức năng</a>
+                            @endif
                             <a class="dropdown-item" href="{{ route('logout') }}">Đăng xuất</a>
                         </div>
                     </li>

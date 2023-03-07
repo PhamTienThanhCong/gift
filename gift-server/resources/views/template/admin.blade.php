@@ -36,7 +36,11 @@
 
         @include('layouts.header-admin')
 
-        @include('layouts.sidebar-admin')
+        @if (Auth::user()->isAdmin == 1)
+            @include('layouts.sidebar-admin')
+        @else
+            @include('layouts.sidebar-user')
+        @endif
 
         <div class="content-wrapper">
 

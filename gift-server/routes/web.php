@@ -69,9 +69,9 @@ Route::group(["middleware" => 'authAdminLogined', "prefix" => "myadmin"], functi
 
 });
 
-// Route::group(["middleware" => 'authUserLogined', "prefix" => "user"], function() {
-//     Route::get("/", [dashboardController::class, "index"])->name("user.dashboard");
-// });
+Route::group(["middleware" => 'authUserLogined', "prefix" => "user"], function() {
+    Route::get("/", [dashboardController::class, "index2"])->name("user.dashboard");
+});
 
 
 // url send
