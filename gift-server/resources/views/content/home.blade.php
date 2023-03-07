@@ -156,7 +156,7 @@
         <div class="row">
             <div class="col-md-3 ftco-animate">
                 <div class="project-wrap img d-flex align-items-center justify-content-center"
-                    style="background-image: url(images/work-1.jpg);">
+                    style="background-image: url(https://preview.colorlib.com/theme/pexman/images/work-1.jpg);">
                     <a href="images/work-1.jpg"
                         class="icon image-popup d-flex align-items-center justify-content-center"><span
                             class="fa fa-search"></span></a>
@@ -168,7 +168,7 @@
             </div>
             <div class="col-md-3 ftco-animate">
                 <div class="project-wrap img d-flex align-items-center justify-content-center"
-                    style="background-image: url(images/work-2.jpg);">
+                    style="background-image: url(https://preview.colorlib.com/theme/pexman/images/work-2.jpg);">
                     <a href="images/work-2.jpg"
                         class="icon image-popup d-flex align-items-center justify-content-center"><span
                             class="fa fa-search"></span></a>
@@ -180,7 +180,7 @@
             </div>
             <div class="col-md-3 ftco-animate">
                 <div class="project-wrap img d-flex align-items-center justify-content-center"
-                    style="background-image: url(images/work-3.jpg);">
+                    style="background-image: url(https://preview.colorlib.com/theme/pexman/images/work-3.jpg);">
                     <a href="images/work-3.jpg"
                         class="icon image-popup d-flex align-items-center justify-content-center"><span
                             class="fa fa-search"></span></a>
@@ -192,7 +192,7 @@
             </div>
             <div class="col-md-3 ftco-animate">
                 <div class="project-wrap img d-flex align-items-center justify-content-center"
-                    style="background-image: url(images/work-4.jpg);">
+                    style="background-image: url(https://preview.colorlib.com/theme/pexman/images/work-4.jpg);">
                     <a href="images/work-4.jpg"
                         class="icon image-popup d-flex align-items-center justify-content-center"><span
                             class="fa fa-search"></span></a>
@@ -204,7 +204,7 @@
             </div>
             <div class="col-md-3 ftco-animate">
                 <div class="project-wrap img d-flex align-items-center justify-content-center"
-                    style="background-image: url(images/work-5.jpg);">
+                    style="background-image: url(https://preview.colorlib.com/theme/pexman/images/work-5.jpg);">
                     <a href="images/work-5.jpg"
                         class="icon image-popup d-flex align-items-center justify-content-center"><span
                             class="fa fa-search"></span></a>
@@ -216,7 +216,7 @@
             </div>
             <div class="col-md-3 ftco-animate">
                 <div class="project-wrap img d-flex align-items-center justify-content-center"
-                    style="background-image: url(images/work-6.jpg);">
+                    style="background-image: url(https://preview.colorlib.com/theme/pexman/images/work-6.jpg);">
                     <a href="images/work-6.jpg"
                         class="icon image-popup d-flex align-items-center justify-content-center"><span
                             class="fa fa-search"></span></a>
@@ -228,7 +228,7 @@
             </div>
             <div class="col-md-3 ftco-animate">
                 <div class="project-wrap img d-flex align-items-center justify-content-center"
-                    style="background-image: url(images/work-7.jpg);">
+                    style="background-image: url(https://preview.colorlib.com/theme/pexman/images/work-7.jpg);">
                     <a href="images/work-7.jpg"
                         class="icon image-popup d-flex align-items-center justify-content-center"><span
                             class="fa fa-search"></span></a>
@@ -240,7 +240,7 @@
             </div>
             <div class="col-md-3 ftco-animate">
                 <div class="project-wrap img d-flex align-items-center justify-content-center"
-                    style="background-image: url(images/work-8.jpg);">
+                    style="background-image: url(https://preview.colorlib.com/theme/pexman/images/work-8.jpg);">
                     <a href="images/work-8.jpg"
                         class="icon image-popup d-flex align-items-center justify-content-center"><span
                             class="fa fa-search"></span></a>
@@ -266,7 +266,7 @@
             <div class="col-md-6 col-lg-3 ftco-animate">
                 <div class="blog-entry">
                     <a href="#" class="block-20"
-                        style="background-image: url('images/image_1.jpg');">
+                        style="background-image: url('https://preview.colorlib.com/theme/pexman/images/image_1.jpg');">
                     </a>
                     <div class="text d-block">
                         <div class="meta">
@@ -282,7 +282,7 @@
             <div class="col-md-6 col-lg-3 ftco-animate">
                 <div class="blog-entry">
                     <a href="#" class="block-20"
-                        style="background-image: url('images/image_2.jpg');">
+                        style="background-image: url('https://preview.colorlib.com/theme/pexman/images/image_2.jpg');">
                     </a>
                     <div class="text d-block">
                         <div class="meta">
@@ -298,7 +298,7 @@
             <div class="col-md-6 col-lg-3 ftco-animate">
                 <div class="blog-entry">
                     <a href="#" class="block-20"
-                        style="background-image: url('images/image_3.jpg');">
+                        style="background-image: url('https://preview.colorlib.com/theme/pexman/images/image_3.jpg');">
                     </a>
                     <div class="text d-block">
                         <div class="meta">
@@ -314,7 +314,7 @@
             <div class="col-md-6 col-lg-3 ftco-animate">
                 <div class="blog-entry">
                     <a href="#" class="block-20"
-                        style="background-image: url('images/image_4.jpg');">
+                        style="background-image: url('https://preview.colorlib.com/theme/pexman/images/image_4.jpg');">
                     </a>
                     <div class="text d-block">
                         <div class="meta">
