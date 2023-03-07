@@ -128,9 +128,9 @@
                         <label>json config</label>
                         <textarea class="form-control" name="config" style="resize:vertical;" rows="10"
 placeholder='[{
-    "name":"Tên mô tả",
-    "data_type":"Kiểu dữ liệu",
-    "demo":"Mẫu dữ liệu"
+    "name":"Tên trang web, phần này sẽ xuất hiện khi bạn gửi cho người khác",
+    "data_type":"text",
+    "demo":"Mẫu thẻ cu te gửi cho người ấy nhân dịp 14/2"
 },{
     "name":"Tên mô tả",
     "data_type":"Kiểu dữ liệu",

@@ -101,9 +101,6 @@
                     <h4>
                         Tên mẫu: {{ $usesTemplate->name }}
                     </h4>
-                    <h4>
-                        Nguồn: <a href="{{ $usesTemplate->source }}" target="_blank">{{ $usesTemplate->source }}</a>
-                    </h4>
 
                     <img width="80%" style="margin-left: 10%" src="{{ asset("images/cards/$usesTemplate->img") }}" alt="{{ $usesTemplate->name }}">
 
@@ -171,14 +168,14 @@
                     </div>
                 @endforeach
 
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <button type="submit" class="btn btn-primary">Tạo mẫu thiệp</button>
                 </div>
             </form>
         </div>
 
         <div class="box-footer">
-            Tạo ra các thể loại thẻ cho người dùng dễ dàng lựa chọn và sử dụng
+            Nguồn: <a href="{{ $usesTemplate->source }}" target="_blank">{{ $usesTemplate->source }}</a>
         </div>
     </div>
 @endsection
