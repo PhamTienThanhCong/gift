@@ -24,7 +24,9 @@
                                 <th>Ảnh</th>
                                 <th>Tên</th>
                                 <th>Mô tả</th>
-                                <th>Số lượng sử dụng</th>
+                                @if (Auth::user()->isAdmin == 1)
+                                    <th>Số lượng</th>
+                                @endif
                                 <th>Thao tác</th>
                             </tr>
                             @foreach ($data as $item)
@@ -32,13 +34,20 @@
                                     <td>{{ $item->id }}</td>
                                     <td><img src="{{ asset("/images/cards/$item->img") }}" alt="" height="100px"></td>
                                     <td>{{ $item->name }}</td>
-                                    <td>{{ $item->description }}</td>
-                                    <td>{{ $item->quantity }}</td>
+                                    <td style="max-width: 400px">{{ $item->description }}</td>
+                                    @if (Auth::user()->isAdmin == 1)
+                                        <td>{{ $item->quantity }}</td>
+                                    @endif
                                     <td>
-                                        <a href="{{ route('admin.card.edit', ['id' => $item->id]) }}"
-                                            class="btn btn-primary">Sửa</a>
+                                        @if (Auth::user()->isAdmin == 1)
+                                            <a href="{{ route('admin.card.edit', ['id' => $item->id]) }}"
+                                                class="btn btn-primary">Sửa</a>
+                                        @else
+                                            <a href="{{ route('user.card.create', ['template' => $item->url]) }}"
+                                                class="btn btn-primary">Sử dụng mẫu</a>
+                                        @endif
                                         <a href="{{ route('card.demo', ['url' => $item->url]) }}"
-                                            class="btn btn-danger">Xem</a>
+                                            target="_blank" class="btn btn-danger">Xem</a>
                                     </td>
                                 </tr>
                             @endforeach

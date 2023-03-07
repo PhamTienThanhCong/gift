@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\auth\userController;
 use App\Http\Controllers\Card\CardController;
+use App\Http\Controllers\Card\CardInforController;
 use App\Http\Controllers\Card\TypeCardController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\HomeController;
@@ -71,6 +72,18 @@ Route::group(["middleware" => 'authAdminLogined', "prefix" => "myadmin"], functi
 
 Route::group(["middleware" => 'authUserLogined', "prefix" => "user"], function() {
     Route::get("/", [dashboardController::class, "index2"])->name("user.dashboard");
+    // route for card
+    Route::group(["prefix" => "card"], function() {
+        Route::get("/list-uses", [CardInforController::class, "index"])->name("user.card");
+        Route::get("/list-template", [CardController::class, "index"])->name("user.card.template");
+        Route::get("/create/{template}", [CardInforController::class, "create"])->name("user.card.create");
+        Route::get("/edit/{id}", [CardInforController::class, "edit"])->name("user.card.edit");
+        Route::get("/view/{id}", [CardInforController::class, "view"])->name("user.card.view");
+        Route::post("/store", [CardInforController::class, "store"])->name("user.card.store");
+        Route::post("/update/{id}", [CardInforController::class, "update"])->name("user.card.update");
+        // check url
+        Route::get("/check-url", [CardInforController::class, "checkUrl"])->name("user.card.check-url");
+    });
 });
 
 

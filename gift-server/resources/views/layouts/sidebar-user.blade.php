@@ -22,7 +22,7 @@
                 </a>
             </li>
             
-            <li class="treeview{{ request()->is('myadmin/card/*') ? ' active' : '' }}">
+            <li class="treeview{{ request()->is('user/card/*') ? ' active' : '' }}">
                 <a href="#">
                     <i class="fa fa-fw fa-file-picture-o"></i>
                     <span>Quản lý mẫu thiệp</span>
@@ -31,19 +31,19 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                  <li class="{{ request()->is('myadmin/type-card/create') ? 'active' : '' }}"><a href="{{ route('admin.card.create') }}"><i class="fa fa-circle-o"></i> Tạo mẫu thiệp</a></li>
-                  <li class="{{ request()->is('myadmin/type-card/list') ? 'active' : '' }}"><a href="{{ route('admin.card') }}"><i class="fa fa-circle-o"></i>Danh sách mẫu thiệp</a></li>
-                  <li><a href="#"><i class="fa fa-circle-o"></i>Mẫu thiệp đang sử dụng</a></li>
+                    <li class="{{ request()->is('user/card/list-template') ? 'active' : '' }}"><a href="{{ route('user.card.template') }}"><i class="fa fa-circle-o"></i>Danh sách mẫu thiệp</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i>Mẫu thiệp đang sử dụng</a></li>
+                    {{-- <li class="{{ request()->is('user/type-card/create') ? 'active' : '' }}"><a href="{{ route('user.card.create') }}"><i class="fa fa-circle-o"></i> Sử dụng mẫu thiệp</a></li> --}}
                 </ul>
             </li>
-            <li class="treeview{{ request()->is('myadmin/type-card/*') ? ' active' : '' }}">
+            <li class="treeview{{ request()->is('user/type-card/*') ? ' active' : '' }}">
                 <a href="#">
                     <i class="fa fa-fw fa-calendar-o"></i>
                     <span>Quản lý ngày lễ</span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="{{ request()->is('myadmin/type-card/list') ? 'active' : '' }}"><a href="#"><i class="fa fa-circle-o"></i>Danh sách ngày lễ</a></li>
-                    <li class="{{ request()->is('myadmin/type-card/create') ? 'active' : '' }}"><a href="#"><i class="fa fa-circle-o"></i>Thêm ngày lễ mới</a></li>
+                    <li class="{{ request()->is('user/type-card/list') ? 'active' : '' }}"><a href="#"><i class="fa fa-circle-o"></i>Danh sách ngày lễ</a></li>
+                    <li class="{{ request()->is('user/type-card/create') ? 'active' : '' }}"><a href="#"><i class="fa fa-circle-o"></i>Thêm ngày lễ mới</a></li>
                 </ul>
               </li>
             <li>
