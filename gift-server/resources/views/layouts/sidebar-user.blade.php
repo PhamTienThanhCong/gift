@@ -19,6 +19,9 @@
             <li class="{{ request()->is('user') ? ' active' : '' }}">
                 <a href="{{ route('user.dashboard') }}">
                     <i class="fa fa-th"></i> <span>Tổng quan</span>
+                    <span class="pull-right-container">
+                        <small class="label pull-right bg-yellow">test</small>
+                    </span>
                 </a>
             </li>
             
@@ -32,7 +35,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li class="{{ request()->is('user/card/list-template') ? 'active' : '' }}"><a href="{{ route('user.card.template') }}"><i class="fa fa-circle-o"></i>Danh sách mẫu thiệp</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i>Mẫu thiệp đang sử dụng</a></li>
+                    <li class="{{ request()->is('user/card/list-uses') ? 'active' : '' }}"><a href="{{ route('user.card') }}"><i class="fa fa-circle-o"></i>Mẫu thiệp của tôi</a></li>
                     {{-- <li class="{{ request()->is('user/type-card/create') ? 'active' : '' }}"><a href="{{ route('user.card.create') }}"><i class="fa fa-circle-o"></i> Sử dụng mẫu thiệp</a></li> --}}
                 </ul>
             </li>
@@ -40,6 +43,9 @@
                 <a href="#">
                     <i class="fa fa-fw fa-calendar-o"></i>
                     <span>Quản lý ngày lễ</span>
+                    <span class="pull-right-container">
+                        <small class="label pull-right bg-yellow">coming soon</small>
+                    </span>
                 </a>
                 <ul class="treeview-menu">
                     <li class="{{ request()->is('user/type-card/list') ? 'active' : '' }}"><a href="#"><i class="fa fa-circle-o"></i>Danh sách ngày lễ</a></li>
@@ -49,6 +55,9 @@
             <li>
                 <a href="#">
                     <i class="fa fa-fw fa-user"></i> <span>Quản lý tài khoản </span>
+                    <span class="pull-right-container">
+                        <small class="label pull-right bg-yellow">coming soon</small>
+                    </span>
                 </a>
             </li>
 

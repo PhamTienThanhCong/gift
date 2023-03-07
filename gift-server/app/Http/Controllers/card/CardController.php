@@ -7,6 +7,7 @@ use App\Models\card_config;
 use App\Models\card_type;
 use App\Models\web_config;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CardController extends Controller
 {
@@ -98,6 +99,8 @@ class CardController extends Controller
         $card_config->img = $image_name;
         $card_config->save();
 
+        $this->logSite(Auth::user()->id, 'Thêm thẻ', 'Thêm thẻ '.$name.' thành công');
+
         // return success.
         return redirect()->route('admin.card.create')->with('success', 'Thêm thẻ thành công');
     }
@@ -136,6 +139,7 @@ class CardController extends Controller
         $card_config->img = $image_name;
         $card_config->save();
 
+        $this->logSite(Auth::user()->id, 'Sửa thẻ', 'Sửa thẻ '.$name.' thành công');
         // return success.
         return redirect()->route('admin.card.edit', $id)->with('success', 'Sửa thẻ thành công');
     }
@@ -167,18 +171,16 @@ class CardController extends Controller
     }
     public function demo($url){
         $card = card_config::where('url', $url)->first();
-        // remove /r and /n in card->config after save to $card 
-        $card_config = str_replace(array("\r",  "\n", "  "), '', $card->config);
-        $card_config = str_replace(array(" :",  ": "), ':', $card_config);
-        // convert string to array
-
-        $card_config = json_decode($card_config);
-
+        if (!$card) {
+            abort(404); 
+        }
+        $card_config = json_decode($card->config);
+        $configs = [];
         for ($i=0; $i < count($card_config); $i++) { 
-            $card_config[$i]->value = $card_config[$i]->demo;
+            array_push($configs, $card_config[$i]->demo);
         }
         return view("template-gift.$card->template",[
-            'data' => $card_config,
+            'data' => $configs,
         ]);
     }
 }

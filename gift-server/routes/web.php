@@ -93,4 +93,6 @@ Route::get("/send/{url}", function($url){
 })->name("card-send");
 
 // route demo
-Route::get("/demo-card/{url}", [CardController::class, "demo"])->name("card.demo");
+Route::get("/demo/{url}", [CardController::class, "demo"])->name("card.demo");
+
+Route::get("/send/{url}", [CardInforController::class, "demo"])->name("card.send");

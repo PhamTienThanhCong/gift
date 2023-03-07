@@ -18,8 +18,8 @@ class CreateCardInfosTable extends Migration
             $table->bigInteger('userId')->unsigned();
             $table->string('url', 50)->unique();
             $table->bigInteger('themeLanding')->unsigned();
-            $table->json('config');
-            $table->json('response');
+            $table->text('config');
+            $table->text('response')->default(NULL);
             $table->integer('view')->default(0);
             $table->integer('maxview')->default(0);
             $table->foreign('userId')->references('id')->on('users');

@@ -19,4 +19,5 @@ class card_config extends Model
         'config',
         'template',
     ];
+
 }
